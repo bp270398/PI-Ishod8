@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PI-Ishod8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/PI-Ishod8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
