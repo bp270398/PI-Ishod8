@@ -5,15 +5,13 @@
  */
 package pi.ishod8.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 /**
- *
  * @author beata
  */
 @Data
@@ -41,7 +39,7 @@ public class Sale {
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return "Sale { " +
-                 dateTime.format(formatter) +
+                dateTime.format(formatter) +
                 ", employee = " + employee +
                 ", train = " + train +
                 ", vehicle =" + vehicle +

@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- *
  * @author beata
  */
 @Data
@@ -20,7 +19,7 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return " " +removePackageNames(this.getClass().getName()) + " {" +
+        return " " + removePackageNames(this.getClass().getName()) + " {" +
                 "gas = " + String.format("%.2f", gasPercentage) + "%" +
                 ", battery = " + String.format("%.2f", batteryPercentage) + "%" +
                 '}';
@@ -29,7 +28,7 @@ public abstract class Vehicle {
     private static String removePackageNames(String s) {
 
         if (s.contains(".")) {
-            return s.substring(s.lastIndexOf(".") + 1, s.length());
+            return s.substring(s.lastIndexOf(".") + 1);
         }
         return s;
     }

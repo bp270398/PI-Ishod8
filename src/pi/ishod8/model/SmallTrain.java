@@ -5,29 +5,29 @@
  */
 package pi.ishod8.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- *
  * @author beata
  */
 @Data
-public class SmallTrain extends Train{
-    
+public class SmallTrain extends Train {
+
     @Getter
     @Setter
     private int capacity;
     public static final int MAX_CAPACITY = 8;
     public static final int CAR_PRICE = 50;
     public static final int VAN_PRICE = 80;
-    
+
     private static final Map<Class<? extends Vehicle>, Integer> priceMap;
-    static{
+
+    static {
         priceMap = new HashMap<>();
         priceMap.put(Car.class, CAR_PRICE);
         priceMap.put(Van.class, VAN_PRICE);
@@ -41,6 +41,6 @@ public class SmallTrain extends Train{
     public Boolean isNotFull() {
         return capacity < MAX_CAPACITY;
     }
-        
+
 
 }

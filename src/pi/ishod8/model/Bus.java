@@ -6,13 +6,12 @@
 package pi.ishod8.model;
 
 /**
- *
  * @author beata
  */
-public class Bus extends Vehicle{
-    
+public class Bus extends Vehicle {
+
     public Bus(double gasPercentage, double batteryPercentage) {
         super(gasPercentage, batteryPercentage);
     }
-    
+
 }

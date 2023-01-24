@@ -5,29 +5,34 @@
  */
 package pi.ishod8.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author beata
  */
 @Data
-public class Employee {
-  
+public class Employee implements Subject{
+
     private String name;
     private double ticketProvision;
-    private double total;
+    private double employeeTotal;
     private List<Sale> sales;
-    
-        public Employee(String name, double ticketProvision) {
+    private List<pi.ishod8.model.Observer> observers;
+
+
+
+    public Employee(String name, double ticketProvision) {
         this.name = name;
         this.ticketProvision = ticketProvision;
         this.sales = new ArrayList<>();
+        this.observers = new ArrayList<>();
+
     }
-        
-    public void newSaleMade(Sale sale){
+
+    public void newSaleMade(Sale sale) {
         this.sales.add(sale);
     }
 
@@ -35,7 +40,29 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
-                ", total=" + String.format("%.2f", total) +
+                ", total=" + String.format("%.2f", employeeTotal) +
                 '}';
+    }
+
+
+    @Override
+    public void register(pi.ishod8.model.Observer obj) {
+        if (!observers.contains(obj)){
+            observers.add(obj);
+        }
+    }
+    @Override
+    public void unregister(pi.ishod8.model.Observer obj) {
+        observers.remove(obj);
+    }
+    @Override
+    public void notifyObservers() {
+        for (pi.ishod8.model.Observer observer: observers) {
+            observer.update();
+        }
+    }
+    @Override
+    public List<Sale> getUpdate(Observer obj) {
+        return sales;
     }
 }
